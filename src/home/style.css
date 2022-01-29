@@ -43,7 +43,12 @@
 
 .search-box{
     -fx-background-color:#FFFFFF;
-    -fx-background-radius: 100;
+    -fx-background-radius: 50;
+}
+.page-box{
+    -fx-background-color:#FFFFFF;
+    -fx-border-radius: 0 0 30 30;
+     -fx-background-radius: 0 0 30 30;
 }
 
 .transparent{
@@ -51,7 +56,7 @@
 }
 
 .search-button{
-    -fx-background-color: #028C6A;
+    -fx-background-color: #3D56B2;
     -fx-background-radius: 30;
 }
 
@@ -64,7 +69,20 @@
 }
 
 .homepage{
-    -fx-background-color: linear-gradient(to right, #4B79A1, #405870, #173e59, #07385e);
+    -fx-background-color: linear-gradient(to bottom, #7bc5ae, #64b79d, #4ca88c, #319a7b, #028c6a);;
 }
-
-
+/* MAIN COLOUR*/
+.mainFxmlClass {
+      -fx-border-radius: 30 30 30 30;
+      -fx-background-radius: 30 30 30 30;
+     -fx-background-color:  linear-gradient(to bottom, #1597e5, #0087f3, #0074fc, #005dff, #113cfc);
+  }
+.transPane{
+    -fx-background-color: transparent;
+}
+.tab {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+}
+}

@@ -1,19 +1,13 @@
 package home;
-import javafx.fxml.FXMLLoader;
+
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -21,11 +15,11 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -34,8 +28,9 @@ import java.util.logging.Logger;
 
 public class Controller implements Initializable {
 
-    //============HAZIQ PERSONAL BOX===========
+    //==================EDIT 29/1/200 10:34
 
+    //GETTING CHAR
     public static int converter(char x){
         int baseName=0;
 
@@ -128,13 +123,8 @@ public class Controller implements Initializable {
         return baseName;
     }
 
-
     @FXML
     private MediaView mediaView;
-
-    @FXML
-    private Button playButton, pauseButton, resetButton;
-
 
 
     //Media 1
@@ -203,6 +193,7 @@ public class Controller implements Initializable {
 
     private MediaPlayer mediaPlayer;
 
+
     private void playNextVideo() {
         disposePlayer();
         if (curIndex == media.size()) {
@@ -221,7 +212,6 @@ public class Controller implements Initializable {
             player.dispose(); // release resources
         }
     }
-
     public void playMedia() {
 
         mediaPlayer.play();
@@ -239,183 +229,161 @@ public class Controller implements Initializable {
         }
     }
 
-//===========================================================================
-
+    //=========================================================================
     @FXML
     private VBox pnItems = null;
+
+    @FXML
+    private BorderPane Mainpane;
+    
     @FXML
     private Button btnHomepage;
 
     @FXML
-    private BorderPane Mainpane;
+    private Button btnPageSpell; //change
 
     @FXML
-    private Button btnTranslate;
+    private Button btnPageBsl;  //change
 
     @FXML
     private Button btnMembers;
-
-    @FXML
-    private Button btnMenus;
-
-    @FXML
-    private Button btnPackages;
-
-    @FXML
-    private Button btnSettings;
-
+    
     @FXML
     private Button btnSignout;
 
     @FXML
-    private Button btnSubmit,btnReset; //search button page translate
+    private Button btnSubmitSpell; //search button page translate spell
 
     @FXML
-    private Pane pnlMembers;
+    private Button btnSubmitBsl; //search button page translate BSL
+    
+    @FXML
+    private TextField textSpell; //tmpt type word page translate spell
 
     @FXML
-    private Pane pnlTranslate;
-
-    @FXML
-    private Pane pnlHomepage;
-
-    @FXML
-    private Pane pnlMenus;
-
-    @FXML
-    private TextField textTranslate; //tmpt type word page translate
+    private TextField textBsl; //tmpt type word page translate Bsl
 
     String textInput;
+
     public void handleClicks(ActionEvent actionEvent) {
-        if (actionEvent.getSource() == btnMembers) {
-            loadUI("ui3"); //page ahli memeber
-        }
-        if (actionEvent.getSource() == btnMenus) {
-            pnlMenus.setStyle("-fx-background-color : #53639F");
-            pnlMenus.toFront();
-        }
+        
         if (actionEvent.getSource() == btnHomepage) {
             loadUI("ui1"); //page homepage
         }
-        if(actionEvent.getSource()==btnTranslate)
+        if(actionEvent.getSource()==btnPageSpell)
         {
-            loadUI("ui2"); //page translate
+            loadUI("ui2"); //page spell
         }
-        if(actionEvent.getSource()==btnReset)
-        {
-            textInput=null;
+        if (actionEvent.getSource() == btnPageBsl) {
+            loadUI("ui4"); //page BSL
+        }
+        if (actionEvent.getSource() == btnMembers) {
+            loadUI("ui3"); //page ahli memeber
         }
         if (actionEvent.getSource() == btnSignout) {
             Stage primaryStage = (Stage) Mainpane.getScene().getWindow(); //exit software
             primaryStage.close();
         }
-        if(actionEvent.getSource()==btnSubmit) //button search page translate
+        if(actionEvent.getSource()==btnSubmitSpell) //button search pageSpell
              {
+                 textInput = textSpell.getText(); //get the text from input page translate
+                 System.out.println(textInput);
 
-                 textInput = textTranslate.getText(); //get the text from input page translate
-                System.out.println(textInput);
+                 if(textInput.isEmpty())
+                 {
+                     return;
+                 }else {
 
-                if(textInput.isEmpty())
-                {
-                    return;
-                }else {
+                     //MANIPULATION
+                     String example = textInput; //example of string to video
+                     String lowExample = example.toLowerCase();  //set to become lower case
 
-                    //MANIPULATION
-                    String example = textInput; //example of string to video
-                    String lowExample = example.toLowerCase();  //set to become lower case
+                     char[] inputChar = new char[15]; //Data store for char to string
 
-                    char[] inputChar = new char[15]; //Data store for char to string
+                     for (int i = 0; i < example.length(); i++)  //string to char
+                     {
+                         inputChar[i] = lowExample.charAt(i);
+                     }
+                     for (int y = example.length(); y < 15; y++) {
+                         inputChar[y] = '9'; //9 is dummy
+                     }
+                     int[] exampleFileIntBaseName = new int[15];
+                     for (int i = 0; i < 15; i++) {
+                         exampleFileIntBaseName[i] = converter(inputChar[i]);
+                         ;
+                         //System.out.println(exampleFileIntBaseName[i]);
+                     }
 
-                    for (int i = 0; i < example.length(); i++)  //string to char
-                    {
-                        inputChar[i] = lowExample.charAt(i);
-                    }
-                    for (int y = example.length(); y < 15; y++) {
-                        inputChar[y] = '9';
-                    }
-                    int[] exampleFileIntBaseName = new int[15];
-                    for (int i = 0; i < 15; i++) {
-                        exampleFileIntBaseName[i] = converter(inputChar[i]);
-                        ;
-                        //System.out.println(exampleFileIntBaseName[i]);
-                    }
+                     String cwd = Path.of("").toAbsolutePath().toString();
+                     //System.out.println(cwd);
 
-                    String cwd = Path.of("").toAbsolutePath().toString();
-                    //System.out.println(cwd);
+                     file1 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[0] + ".mp4");
+                     media1 = new Media(file1.toURI().toString());
 
-                    file1 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[0] + ".mp4");
-                    media1 = new Media(file1.toURI().toString());
+                     file2 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[1] + ".mp4");
+                     media2 = new Media(file2.toURI().toString());
 
-                    file2 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[1] + ".mp4");
-                    media2 = new Media(file2.toURI().toString());
+                     file3 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[2] + ".mp4");
+                     media3 = new Media(file3.toURI().toString());
 
-                    file3 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[2] + ".mp4");
-                    media3 = new Media(file3.toURI().toString());
+                     file4 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[3] + ".mp4");
+                     media4 = new Media(file4.toURI().toString());
 
-                    file4 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[3] + ".mp4");
-                    media4 = new Media(file4.toURI().toString());
+                     file5 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[4] + ".mp4");
+                     media5 = new Media(file5.toURI().toString());
 
-                    file5 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[4] + ".mp4");
-                    media5 = new Media(file5.toURI().toString());
+                     file6 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[5] + ".mp4");
+                     media6 = new Media(file6.toURI().toString());
 
-                    file6 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[5] + ".mp4");
-                    media6 = new Media(file6.toURI().toString());
+                     file7 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[6] + ".mp4");
+                     media7 = new Media(file7.toURI().toString());
 
-                    file7 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[6] + ".mp4");
-                    media7 = new Media(file7.toURI().toString());
+                     file8 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[7] + ".mp4");
+                     media8 = new Media(file8.toURI().toString());
 
-                    file8 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[7] + ".mp4");
-                    media8 = new Media(file8.toURI().toString());
+                     file9 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[8] + ".mp4");
+                     media9 = new Media(file9.toURI().toString());
 
-                    file9 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[8] + ".mp4");
-                    media9 = new Media(file9.toURI().toString());
+                     file10 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[9] + ".mp4");
+                     media10 = new Media(file10.toURI().toString());
 
-                    file10 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[9] + ".mp4");
-                    media10 = new Media(file10.toURI().toString());
+                     file11 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[10] + ".mp4");
+                     media11 = new Media(file11.toURI().toString());
 
-                    file11 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[10] + ".mp4");
-                    media11 = new Media(file11.toURI().toString());
+                     file12 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[11] + ".mp4");
+                     media12 = new Media(file12.toURI().toString());
 
-                    file12 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[11] + ".mp4");
-                    media12 = new Media(file12.toURI().toString());
+                     file13 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[12] + ".mp4");
+                     media13 = new Media(file13.toURI().toString());
 
-                    file13 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[12] + ".mp4");
-                    media13 = new Media(file13.toURI().toString());
+                     file14 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[13] + ".mp4");
+                     media14 = new Media(file14.toURI().toString());
 
-                    file14 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[13] + ".mp4");
-                    media14 = new Media(file14.toURI().toString());
-
-                    file15 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[14] + ".mp4");
-                    media15 = new Media(file15.toURI().toString());
-
-
-                    //STARTING TO STORING THE FILE
-
-                    media = Arrays.asList(media1, media2, media3, media4, media5, media6, media7, media8, media9, media10
-                            , media11, media12, media13, media14, media15);
-
-                    mediaPlayer = new MediaPlayer(media1);
-                    mediaView.setMediaPlayer(mediaPlayer);
+                     file15 = new File(cwd + "/src/videos/" + exampleFileIntBaseName[14] + ".mp4");
+                     media15 = new Media(file15.toURI().toString());
 
 
-                    playNextVideo();
+                     //STARTING TO STORING THE FILE
 
-                }
+                     media = Arrays.asList(media1, media2, media3, media4, media5, media6, media7, media8, media9, media10
+                             , media11, media12, media13, media14, media15);
 
-             }
+                     mediaPlayer = new MediaPlayer(media1);
+                     mediaView.setMediaPlayer(mediaPlayer);
+
+
+                     playNextVideo();
+
+                 }
+
+            }
+        if(actionEvent.getSource()==btnSubmitBsl) //button search pageBSL
+        {
+            String text = textBsl.getText(); //get the text from input pageBSL
+            System.out.println(text);
+        }
+
     }
-
-/*
-        public void handlebtnMenus() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("try1.fxml"));
-        Stage window = (Stage)(btnMenus.getScene().getWindow());
-        window.setScene(new Scene(root, 1050,576));
-
-    }*/
-//    ================MODIFIED 3:00 PM 25/1/20221 HAZIQ AFTER SUCCESS
-
-
-
     private void loadUI(String ui){ //load multiple fxml
         Parent root = null;
         try{
