@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="986.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
+    <children>
+          <Pane fx:id="pnlMembers" prefHeight="576.0" prefWidth="1011.0" stylesheets="@style.css">
+              <children>
+                  <Pane layoutX="-6.0" prefHeight="303.0" prefWidth="419.0" stylesheets="@style.css">
+                      <children>
+                          <Text layoutX="66.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RIDHWAN" wrappingWidth="67.13671875" />
+                          <ImageView fitHeight="115.0" fitWidth="176.0" layoutX="31.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" styleClass="chosen-fruit-card">
+                              <image>
+                                  <Image url="@../images/c8bda99ff35a1aca879a77d8dfb84dd2.jpg" />
+                              </image>
+                  </ImageView>
+                          <Pane layoutX="186.0" layoutY="18.0" prefHeight="200.0" prefWidth="200.0">
+                              <children>
+                                  <Pane layoutX="-10.0" layoutY="27.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #174C4F;" stylesheets="@style.css">
+                                      <styleClass>
+                                          <String fx:value="chosen-fruit-card" />
+                                          <String fx:value="shadow" />
+                                      </styleClass>
+                        </Pane>
+                              </children>
+                          </Pane>
+                      </children>
+                  </Pane>
+                  <Pane layoutX="424.0" layoutY="-8.0" prefHeight="287.0" prefWidth="428.0">
+                      <children>
+                          <Text layoutX="68.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IQBAL" />
+                          <ImageView fitHeight="115.0" fitWidth="176.0" layoutX="22.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@../images/c8bda99ff35a1aca879a77d8dfb84dd2.jpg" />
+                              </image>
+                  </ImageView>
+                          <Pane layoutX="169.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D9C7A2;" stylesheets="@style.css">
+                              <styleClass>
+                                  <String fx:value="chosen-fruit-card" />
+                                  <String fx:value="shadow" />
+                              </styleClass>
+                  </Pane>
+                      </children>
+                  </Pane>
+                  <Pane layoutX="-1.0" layoutY="324.0" prefHeight="261.0" prefWidth="419.0">
+                      <children>
+                          <Text layoutX="59.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AIZUDDIN" />
+                          <ImageView fitHeight="115.0" fitWidth="176.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@../images/c8bda99ff35a1aca879a77d8dfb84dd2.jpg" />
+                              </image>
+                  </ImageView>
+                          <Pane layoutX="168.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #174C4F;" stylesheets="@style.css">
+                              <styleClass>
+                                  <String fx:value="chosen-fruit-card" />
+                                  <String fx:value="shadow" />
+                              </styleClass>
+                  </Pane>
+                      </children>
+                  </Pane>
+                  <Pane layoutX="431.0" layoutY="320.0" prefHeight="261.0" prefWidth="425.0">
+                      <children>
+                          <Text layoutX="54.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HAZIQ" />
+                          <ImageView fitHeight="115.0" fitWidth="176.0" layoutX="9.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                  <Image url="@../images/c8bda99ff35a1aca879a77d8dfb84dd2.jpg" />
+                              </image>
+                  </ImageView>
+                          <Pane layoutX="161.0" layoutY="28.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4B79A1;" stylesheets="@style.css">
+                              <styleClass>
+                                  <String fx:value="chosen-fruit-card" />
+                                  <String fx:value="shadow" />
+                              </styleClass>
+                  </Pane>
+                      </children>
+                  </Pane>
+              </children>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="transparent" />
+         </styleClass>
+      </Pane>
+    </children>
+    <effect>
+        <DropShadow color="#1b1eeb" />
+    </effect>
+   <styleClass>
+      <String fx:value="shadow" />
+      <String fx:value="transparent" />
+   </styleClass>
+</AnchorPane>

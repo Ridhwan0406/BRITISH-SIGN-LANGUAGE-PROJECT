@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" styleClass="homepage" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Controller">
+    <children>
+        <StackPane layoutX="-3.0" prefHeight="576.0" prefWidth="1054.0" style="-fx-background-color: #7BC5AE;">
+            <children>
+                <Pane fx:id="pnlMembers" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlTranslate" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
+                <Pane fx:id="pnlHomepage" prefHeight="576.0" prefWidth="862.0" styleClass="homepage" stylesheets="@style.css">
+                    <children>
+                        <Text fill="WHITE" layoutX="211.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BRITISH SIGN LANGUANGE SOFTWARE">
+                            <font>
+                                <Font size="32.0" />
+                            </font>
+                        </Text>
+                        <Pane prefHeight="73.0" prefWidth="837.0">
+                            <children>
+                                <ImageView fitHeight="53.0" fitWidth="82.0" layoutX="112.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/BSL_letter_W.svg.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="53.0" fitWidth="82.0" layoutX="206.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/640px-BSL_letter_E.svg.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="53.0" fitWidth="82.0" layoutX="302.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/640px-BSL_letter_L.svg.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="53.0" fitWidth="82.0" layoutX="395.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/640px-BSL_letter_C.svg.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="53.0" fitWidth="82.0" layoutX="488.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/640px-BSL_letter_O.svg.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="53.0" fitWidth="82.0" layoutX="585.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/640px-BSL_letter_M.svg.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="53.0" fitWidth="82.0" layoutX="677.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/640px-BSL_letter_E.svg.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <ImageView fitHeight="337.0" fitWidth="508.0" layoutX="24.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                            <image>
+                                <Image url="@../images/SL_Alphabets-removebg-preview.png" />
+                            </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="359.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CAT201 PROJECT">
+                            <font>
+                                <Font size="32.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+            </children>
+        </StackPane>
+    </children>
+    <effect>
+        <DropShadow color="#1b1eeb" />
+    </effect>
+</AnchorPane>
